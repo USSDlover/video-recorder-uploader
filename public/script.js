@@ -72,6 +72,30 @@ document.addEventListener('DOMContentLoaded', function () {
         video.src = videoURL;
     });
 
+    // Upload the recorded video when the upload button is clicked
+    uploadButton.addEventListener('click', function () {
+        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+
+        const formData = new FormData();
+        formData.append('video', blob, 'recorded-video.webm');
+
+        axios.post('/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: function (progressEvent) {
+                const percentComplete = (progressEvent.loaded / progressEvent.total) * 100;
+                progressBar.value = percentComplete;
+            },
+        })
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.error('Error uploading video:', error);
+            });
+    });
+
     // Set the correct disabled state for buttons when recording is in progress
     function enableButtonsOnRecording() {
         recordButton.disabled = true;
