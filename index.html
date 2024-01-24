@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Selfie Recorder</title>
+</head>
+<body>
+<div id="app">
+    <div class="recorder">
+        <h4>Maximum video time is 20seconds</h4>
+        <span id="timer"></span>
+        <video id="selfieVideo" autoplay></video>
+        <div class="actions">
+            <button id="recordButton">Record</button>
+            <button id="stopButton" disabled>Stop</button>
+            <button id="playButton" disabled>Play</button>
+        </div>
+        <div class="uploader">
+            <div class="file-details">
+                <div id="fileSize"></div>
+                <button id="uploadButton" disabled>Upload</button>
+            </div>
+            <progress id="progressBar" max="100" value="0"></progress>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
