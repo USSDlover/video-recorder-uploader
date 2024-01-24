@@ -4,6 +4,7 @@ This simple app is meant to let users record a selfie, up to 20 seconds, and the
 
 ## Installation and Running the app
 
+- Make sure to have Nodejs +16 installed
 - Clone the app
 - Run `npm install`
 - Start `npm start`
